@@ -1,0 +1,3 @@
+# Access levels for db
+READ_ONLY_ACCESS = 'READ_ONLY'
+READ_WRITE_ACCESS = 'READ_WRITE'
