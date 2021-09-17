@@ -78,7 +78,7 @@ def train(net, device, train_data, optimizer, batches_per_epoch):
 
 def run():
     args = parse_args()
-    writer = tensorboardX.SummaryWriter('log_lr0001_bs16_d1')  # 括号里为数据存放的地址
+    writer = tensorboardX.SummaryWriter('log_lr0001_bs16_d1')  
     Path_dataset = "grasp_map_480640_c.hdf5"
 
     # train dataset
@@ -107,7 +107,7 @@ def run():
     print('Done')
 
     for epoch in range(args.epochs):
-        train_results = train(epoch, net, device, train_data, optimizer,args.batches_per_epoch )#
+        train_results = train(net, device, train_data, optimizer,args.batches_per_epoch )#
         test_results = validate(net, device, val_data, args.val_batches)#
         torch.save(net.state_dict(), 'model/model.pkl')
         writer.add_scalars('Accu',{'v':test_results['loss'],'t':train_results['loss']},epoch)
